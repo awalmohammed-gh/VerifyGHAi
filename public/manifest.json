@@ -1,0 +1,16 @@
+{
+  "short_name": "VerifAI GH",
+  "name": "VerifAI Ghana — Misinformation Detection & Credibility System",
+  "description": "Check Before You Share. Real-time AI fact-checking, source credibility ratings, and offline verification history.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff"
+}

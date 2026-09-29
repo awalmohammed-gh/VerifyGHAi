@@ -1,0 +1,6 @@
+{
+  "name": "VERIFAI GH",
+  "description": "AI-Powered Misinformation Detection and Source Credibility Verification System",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

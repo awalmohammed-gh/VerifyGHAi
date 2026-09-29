@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg-page: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --bg-card: #f8fafc;
+    --border-color: #e2e8f0;
+  }
+
+  :root.dark, html.dark {
+    color-scheme: dark;
+    --bg-page: #090d16;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html.dark body {
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Default form element text contrast safeguards */
+  input, textarea, select {
+    color: inherit;
+  }
+}
+
+@keyframes pop-haptic {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.12);
+  }
+  65% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pop {
+  animation: pop-haptic 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  *, *::before, *::after {
+    background-color: transparent !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .no-print,
+  nav,
+  aside,
+  header.no-print,
+  button,
+  #download-report-menu,
+  #report-inaccuracy-feedback-card,
+  #dispute-submitted-banner,
+  .toast-container,
+  .recharts-tooltip-wrapper {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-avoid-break,
+  .print-card,
+  .claim-card,
+  .evidence-card,
+  .indicator-card,
+  .source-card,
+  article,
+  section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-card {
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+    padding: 16px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Badge and score styling for clean PDF export */
+  .badge, [class*="rounded-full"], [class*="rounded-xl"], [class*="rounded-2xl"] {
+    border: 1px solid #cbd5e1 !important;
+    background-color: #f8fafc !important;
+  }
+
+  /* Preserve link readability */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #64748b !important;
+    word-break: break-all;
+  }
+
+  /* Hide raw link URLs on internal navigation or buttons */
+  a.no-print-url:after,
+  button:after,
+  .no-url-print:after {
+    content: "" !important;
+  }
+}
+
